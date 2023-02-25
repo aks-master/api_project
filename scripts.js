@@ -25,11 +25,11 @@ function renderBooks() {
     .then((data) => {
       let len = data.items.length;
       //dyanimcally creating cards for each response.
-      console.log("FETCHING BOOKS");
+      console.log("FETCHING BOOKS",data);
       data.items.forEach((book) => {
         let temp = `<div class="col-sm">
-        <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="${book.volumeInfo.imageLinks.thumbnail}" alt="no image">
+        <div class="card" style="width: 18rem">
+                    <img class="card-img-top" src="${book.volumeInfo.imageLinks?.thumbnail ? book.volumeInfo.imageLinks?.thumbnail :'""'}" alt="no image">
                     <div class="card-body">
                       <h5 class="card-title">${book.volumeInfo.title}</h5>
                       <h6>${book.volumeInfo.authors?book.volumeInfo.authors:''}</h6>
